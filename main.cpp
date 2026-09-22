@@ -15,17 +15,21 @@ void fillArray(int (&arr)[10]) {
         arr[i] = rand() % 100;
     }
 }
+void printArray(const int (&arr)[10]) {
+    for (auto x : arr) {
+        std::cout << x << " ";
+    }
+    std::cout << std::endl;
+}
+
 
 int main() {
     int arr[10];
     srand(time(0));
     
     fillArray(arr);
-    
-    for (int x : arr) {
-        std::cout << x << " ";
-    }
-    std::cout << std::endl;
+    printArray(arr);
+ 
     
     return 0;
 }
