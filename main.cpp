@@ -30,6 +30,16 @@ void printArray(const int (&arr)[10]) {
     }
     std::cout << std::endl;
 }
+/**
+ * @brief Меняет местами два элемента массива
+ *
+ * Обменивает значения элементов с индексами i и j
+ * через временную переменную temp.
+ *
+ * @param arr Ссылка на массив из 10 элементов
+ * @param i Ссылка на индекс первого элемента
+ * @param j Ссылка на индекс второго элемента
+ */
 void swapElements(int (&arr)[10], int& i, int& j) {
     int temp = arr[i];
     arr[i] = arr[j];
