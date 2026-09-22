@@ -30,13 +30,21 @@ void printArray(const int (&arr)[10]) {
     }
     std::cout << std::endl;
 }
+void swapElements(int (&arr)[10], int& i, int& j) {
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
 int main() {
     int arr[10];
     srand(time(0));
     
     fillArray(arr);
     printArray(arr);
- 
-    
+
+    int i = 2, j = 5;
+    swapElements(arr, i, j);
+    printArray(arr);
+
     return 0;
 }
