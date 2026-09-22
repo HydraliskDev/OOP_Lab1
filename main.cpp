@@ -45,6 +45,14 @@ void swapElements(int (&arr)[10], int& i, int& j) {
     arr[i] = arr[j];
     arr[j] = temp;
 }
+/**
+ * @brief Умножает каждый элемент массива на 2
+ *
+ * Использует range-based for с неконстантной (int&),
+ * Чтобы изменить сами элементы массива, а не их копии.
+ *
+ * @param arr Ссылка на массив из 10 элементов
+ */
 void multiplyByTwo(int (&arr)[10]){
     for(int& x : arr){
        x *= 2;
