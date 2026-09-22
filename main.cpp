@@ -45,6 +45,11 @@ void swapElements(int (&arr)[10], int& i, int& j) {
     arr[i] = arr[j];
     arr[j] = temp;
 }
+void multiplyByTwo(int (&arr)[10]){
+    for(int& x : arr){
+       x *= 2;
+    }
+}
 int main() {
     int arr[10];
     srand(time(0));
@@ -54,6 +59,9 @@ int main() {
 
     int i = 2, j = 5;
     swapElements(arr, i, j);
+    printArray(arr);
+    
+    multiplyByTwo(arr);
     printArray(arr);
 
     return 0;
