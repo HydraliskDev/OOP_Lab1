@@ -29,9 +29,31 @@ void printSafe(const SafeArray& arr){
         std::cout << arr.data[i] << " ";
     }
     std::cout << std::endl;
-
 }
 
+void reSizeArray(SafeArray& arr, int M) {
+    int N = arr.size;
+
+    int* newData = new int [M]{};
+
+    int copyCount = (N < M) ? N : M;
+
+    for (int i = 0; i < copyCount; i++){
+        newData[i] = arr.data[i];
+    }
+    
+    if (M < N) {
+        std::cout << "Удаленные элементы: ";
+        for (int i = M; i < N; i++){
+            std::cout << arr.data[i] << " ";
+        }
+    }
+    
+    delete[] arr.data;
+
+    arr.data = newData;
+    arr.size = M;
+}
 int main(){
     setlocale(LC_ALL, "ru_RU.UTF-8");
 
@@ -51,6 +73,16 @@ int main(){
     std::cout << "Пытаемся обратиться к элементу 100:" << std::endl;
     getElement(myArr, 100) = 12345;
     std::cout << "(значение не изменилось — защита работает)" << std::endl;
+    printSafe(myArr);
+
+    std::cout << "\nУменьшаем с 10 до 5:" << std::endl;    
+    reSizeArray(myArr, 5);
+    std::cout << "\n";
+    printSafe(myArr);
+
+    std::cout << "\nУвеличиваем с 5 до 8:" << std::endl;
+    
+    reSizeArray(myArr, 8);
     printSafe(myArr);
 
 
