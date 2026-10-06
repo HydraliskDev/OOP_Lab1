@@ -36,7 +36,13 @@ void printMatrix(int** matrix, int rows, int cols, bool showBorders = true, std:
     if (showBorders) {
         std::cout << "**************" << std::endl;
     }
+}
 
+void freeMatrix(int**matrix, int rows) {
+    for (int i = 0; i < rows; i++) {
+        delete[] matrix[i];
+    }
+    delete[] matrix;
 }
 int main() {
     setlocale(LC_ALL, "ru_RU.UTF-8");
@@ -60,9 +66,7 @@ int main() {
     std::cout << "\n--- Вызов 3: без рамки ---" << std::endl;
     printMatrix(matrix, rows, cols, false, "No Borders");
 
-    for(int i = 0; i < rows; i++) {
-        delete[] matrix[i];
-    }
-    delete[] matrix;
+    freeMatrix(matrix, rows);
+    
     return 0;
 }
